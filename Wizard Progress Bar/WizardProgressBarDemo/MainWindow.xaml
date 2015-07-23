@@ -1,0 +1,23 @@
+﻿<Window x:Class="WizardProgressBarDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525"
+        xmlns:controls="clr-namespace:WizardProgressBarLibrary;assembly=WizardProgressBarLibrary">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <controls:WizardProgressBar ItemsSource="{Binding Steps}"
+                                    Foreground="#FF086398"
+                                    Progress="{Binding Progress}"
+                                    SnapsToDevicePixels="True"
+                                    Margin="40"/>
+        <TextBlock Grid.Row="1" Text="{Binding Progress}"/>
+        <Button Grid.Row="2" Content="Increase" Click="IncreaseButton_Click"/>
+        <Button Grid.Row="3" Content="Decrease" Click="DecreaseButton_Click"/>
+    </Grid>
+</Window>
