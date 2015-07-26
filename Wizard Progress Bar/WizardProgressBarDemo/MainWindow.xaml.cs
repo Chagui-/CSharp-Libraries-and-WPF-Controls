@@ -68,12 +68,12 @@ namespace WizardProgressBarDemo
 
         private void IncreaseButton_Click(object sender, RoutedEventArgs e)
         {
-            Progress += 20;
+            Progress += 1;
         }
 
         private void DecreaseButton_Click(object sender, RoutedEventArgs e)
         {
-            Progress -= 20;
+            Progress -= 1;
         }
     }
 }

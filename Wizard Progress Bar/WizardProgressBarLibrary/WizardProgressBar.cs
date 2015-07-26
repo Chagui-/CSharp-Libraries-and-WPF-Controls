@@ -26,17 +26,22 @@ namespace WizardProgressBarLibrary
 
         private static object CoerceProgress(DependencyObject target, object value)
         {
-            WizardProgressBar wizardProgressBar = (WizardProgressBar)target;
+            WizardProgressBar wizardProgressBar = (WizardProgressBar) target;
+                
             int progress = (int)value;
             if (progress < 0)
             {
                 progress = 0;
             }
-            else if (progress > 100)
+            else if (progress > wizardProgressBar.Items.Count)
             {
-                progress = 100;
+                progress = wizardProgressBar.Items.Count;
             }
-            return progress;
+            if (wizardProgressBar.Items.Count == 0)
+            {
+                return 0;
+            }
+            return 100* progress / wizardProgressBar.Items.Count;
         }
 
         #endregion // Dependency Properties
